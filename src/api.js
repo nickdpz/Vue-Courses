@@ -25,8 +25,22 @@ async function getAssetHistory(coin) {
   return res_1.data
 }
 
+async function getMarkets(coin) {
+  const res = await fetch(`${url}/assets/${coin}/markets?limit=5`)
+  const res_1 = await res.json()
+  return res_1.data
+}
+
+async function getExchange(id) {
+  const res = await fetch(`${url}/exchanges/${id}`)
+  const res_1 = await res.json()
+  return res_1.data
+}
+
 export default {
   getAssets,
   getAsset,
+  getMarkets,
+  getExchange,
   getAssetHistory
 }

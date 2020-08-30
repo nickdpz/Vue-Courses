@@ -1,7 +1,11 @@
 <template>
   <div class="flex-col">
     <div class="flex justify-center">
-      <moon-loader :loading="isLoading" :color="'#0000ff'" :size="100"></moon-loader>
+      <rotate-loader
+        :loading="isLoading"
+        :color="'#0000ff'"
+        :size="100"
+      ></rotate-loader>
     </div>
     <px-assets-table v-if="!isLoading" :assets="assets" />
   </div>
