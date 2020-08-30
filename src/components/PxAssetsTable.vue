@@ -105,9 +105,9 @@ export default {
         })
     }
   },
-  updated() {
-    //console.log(this._props)
-  },
+  // updated() {
+  //   //console.log(this._props)
+  // },
   methods: {
     goToCoin(id) {
       this.$router.push({ name: 'coin-detail', params: { id } })
