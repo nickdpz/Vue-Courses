@@ -1,6 +1,9 @@
 <template>
-  <div>
-    <px-assets-table :assets="assets" />
+  <div class="flex-col">
+    <div class="flex justify-center">
+      <moon-loader :loading="isLoading" :color="'#0000ff'" :size="100"></moon-loader>
+    </div>
+    <px-assets-table v-if="!isLoading" :assets="assets" />
   </div>
 </template>
 
@@ -14,12 +17,18 @@ export default {
   components: { PxAssetsTable },
 
   data() {
-    return { assets: [] }
+    return { assets: [], isLoading: true }
   },
 
   async created() {
-    const assets = await api.getAssets()
-    this.assets = assets
+    try {
+      this.isLoading = true
+      const assets = await api.getAssets()
+      this.assets = assets
+      this.isLoading = false
+    } catch (e) {
+      this.isLoading = false
+    }
   }
 }
 </script>
