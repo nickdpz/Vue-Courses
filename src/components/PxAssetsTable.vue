@@ -32,7 +32,7 @@
         <td>
           <img
             class="w-6 h-6"
-            :src="
+            v-lazy="
               `https://static.coincap.io/assets/icons/${a.symbol.toLowerCase()}@2x.png`
             "
             :alt="a.name"
