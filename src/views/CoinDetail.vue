@@ -1,11 +1,7 @@
 <template>
   <div class="flex-col">
     <div class="flex justify-center">
-      <rotate-loader
-        :loading="isLoading"
-        :color="'#0000ff'"
-        :size="100"
-      ></rotate-loader>
+      <rotate-loader :loading="isLoading" :color="'#0000ff'" :size="100"></rotate-loader>
     </div>
     <template v-if="!isLoading">
       <div class="flex flex-col sm:flex-row justify-around items-center">
@@ -55,9 +51,7 @@
         <div class="my-10 sm:mt-0 flex flex-col justify-center text-center">
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          >
-            Cambiar
-          </button>
+          >Cambiar</button>
 
           <div class="flex flex-row my-5">
             <label class="w-full" for="convertValue">
@@ -81,11 +75,7 @@
       />
       <h3 class="text-xl my-10">Mejores Ofertas de Cambio</h3>
       <table>
-        <tr
-          v-for="m in markets"
-          :key="`${m.exchangeId}-${m.priceUsd}`"
-          class="border-b"
-        >
+        <tr v-for="m in markets" :key="`${m.exchangeId}-${m.priceUsd}`" class="border-b">
           <td>
             <b>{{ m.exchangeId }}</b>
           </td>
@@ -100,9 +90,11 @@
               <slot>Obtener Link</slot>
             </px-button>
 
-            <a v-else class="hover:underline text-green-600" target="_blanck">{{
+            <a v-else class="hover:underline text-green-600" target="_blanck">
+              {{
               m.url
-            }}</a>
+              }}
+            </a>
           </td>
         </tr>
       </table>
@@ -143,6 +135,11 @@ export default {
       return Math.abs(
         ...this.history.map(h => parseFloat(h.priceUsd).toFixed(2))
       )
+    }
+  },
+  watch: {
+    $route() {
+      this.getCoin()
     }
   },
 
