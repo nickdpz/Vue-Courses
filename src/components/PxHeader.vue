@@ -5,7 +5,7 @@
         <div class="flex items-center flex-shrink-0 text-white mr-6">
           <px-icon class="mr-2" />
           <router-link
-            :to="{ name: 'Home' }"
+            :to="{ name: 'home' }"
             class="font-semibold text-xl tracking-tight"
             >PlatziExchange</router-link
           >
